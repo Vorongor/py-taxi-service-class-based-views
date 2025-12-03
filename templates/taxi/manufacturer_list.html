@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container mt-4">
+
+    <h1 class="mb-4">Manufacturer List</h1>
+
+    {% if manufacturer_list %}
+      <ul class="list-group">
+        {% for manufacturer in manufacturer_list %}
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <strong>{{ manufacturer.name }}</strong>
+            <span class="text-secondary">{{ manufacturer.country }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+
+    {% else %}
+      <div class="alert alert-warning mt-3">
+        Sorry, there are no manufacturers yet...
+      </div>
+    {% endif %}
+
+  </div>
+{% endblock %}
