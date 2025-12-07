@@ -25,7 +25,7 @@
 
             <td>
               <a href="{% url 'taxi:driver-detail' driver.id %}"
-                 class="fw-semibold text-decoration-none">
+                 class="font-weight-bold text-decoration-none">
                 {{ driver.username }}
               </a>
             </td>
@@ -37,7 +37,7 @@
 
             <td>
               {% for car in driver.cars.all %}
-                <span class="badge bg-primary">{{ car.model }}</span>
+                <span class="badge badge-primary">{{ car.model }}</span>
               {% empty %}
                 <span class="text-muted">No cars</span>
               {% endfor %}

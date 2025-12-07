@@ -24,34 +24,35 @@
     </div>
 
     <h4 class="mb-3">Drivers</h4>
-
-    {% if car.drivers.all %}
-      <table class="table table-hover table-striped align-middle">
-        <thead class="table-dark">
-        <tr>
-          <th>ID</th>
-          <th>Username</th>
-          <th>First name</th>
-          <th>Last name</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        {% for driver in car.drivers.all %}
+    {% with drivers=car.drivers.all %}
+      {% if drivers %}
+        <table class="table table-hover table-striped align-middle">
+          <thead class="table-dark">
           <tr>
-            <td>{{ driver.id }}</td>
-            <td>{{ driver.username }}</td>
-            <td>{{ driver.first_name }}</td>
-            <td>{{ driver.last_name }}</td>
+            <th>ID</th>
+            <th>Username</th>
+            <th>First name</th>
+            <th>Last name</th>
           </tr>
-        {% endfor %}
-        </tbody>
-      </table>
-    {% else %}
-      <div class="alert alert-warning">
-        This car has no assigned drivers yet.
-      </div>
-    {% endif %}
+          </thead>
+
+          <tbody>
+          {% for driver in drivers %}
+            <tr>
+              <td>{{ driver.id }}</td>
+              <td>{{ driver.username }}</td>
+              <td>{{ driver.first_name }}</td>
+              <td>{{ driver.last_name }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <div class="alert alert-warning">
+          This car has no assigned drivers yet.
+        </div>
+      {% endif %}
+    {% endwith %}
 
   </div>
 {% endblock %}

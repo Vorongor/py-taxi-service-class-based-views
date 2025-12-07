@@ -4,9 +4,9 @@
 
     <h1 class="mb-4">Manufacturer List</h1>
 
-    {% if manufacturer_list %}
+    {% if object_list %}
       <ul class="list-group">
-        {% for manufacturer in manufacturer_list %}
+        {% for manufacturer in object_list %}
           <li class="list-group-item d-flex justify-content-between align-items-center">
             <strong>{{ manufacturer.name }}</strong>
             <span class="text-secondary">{{ manufacturer.country }}</span>
